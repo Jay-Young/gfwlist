@@ -31,9 +31,12 @@ jobs:
           base64 gfwlist_decoded.txt > gfwlist.txt
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add gfwlist.txt
           git commit -m "Automated update: Sync GFWList and add custom sites"
-          git push
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/Jay-Young/gfwlist.git
+          git push origin main
