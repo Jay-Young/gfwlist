@@ -36,5 +36,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add gfwlist.txt
           git commit -m "Automated update: Sync GFWList and add custom sites"
-          git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Jay-Young/gfwlist.git
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jay-Young/gfwlist.git
           git push origin main
