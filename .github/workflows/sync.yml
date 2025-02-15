@@ -32,6 +32,10 @@ jobs:
         run: |
           base64 gfwlist_decoded.txt > gfwlist.txt
 
+      - name: Clean decoded files
+        run: |
+          rm -f gfwlist_decoded.txt custom_decoded.txt
+
       - name: Commit and push changes
         run: |
           git config --global user.name "Jay-Young"
